@@ -7,11 +7,9 @@ public class App
 {
 /**esto es una pequeña prueba */
     private final String message = "Hello World!";
-
     public App() {}
 
     public static void main(String[] args) {
-        String nombre= "johan";
         System.out.println(new App().getMessage());
     }
 
