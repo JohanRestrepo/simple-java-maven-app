@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('Checkout') {
             steps {
-                git 'https://github.com/facevedom/simple-java-maven-app'
+                git 'https://github.com/JohanRestrepo/simple-java-maven-app.git'
             }
         }
     }
