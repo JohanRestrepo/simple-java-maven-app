@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage ('Test') {
             steps {
-                junit 'pom.xml'
+                mvn test
             }
         }
     }
