@@ -7,13 +7,11 @@ pipeline {
                 git 'https://github.com/JohanRestrepo/simple-java-maven-app.git'
             }
         }
-    }
-
-    stages {
         stage ('Test') {
             steps {
-                mvn test
+                sh 'mvn test'
             }
         }
+
     }
 }
