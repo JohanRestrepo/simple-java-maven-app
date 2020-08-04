@@ -12,6 +12,10 @@ pipeline {
                 sh 'mvn test'
             }
         }
-
+        post {
+        always {
+            junit 'TestResult.xml'
+        }
+    }
     }
 }
