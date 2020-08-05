@@ -11,7 +11,13 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
-        }  
+        }
+        stage('Build Jar'){
+        steps {
+            sh 'mvn package'
+            stash includes: 'target/*.jar', name: 'targetfiles'
+        }
+    }  
     }
     post {
         always {
