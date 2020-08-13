@@ -17,7 +17,26 @@ pipeline {
             sh 'mvn package'
             stash includes: 'target/*.jar', name: 'targetfiles'
         }
-    }  
+        }
+        stage('Upload File nexus'){
+        steps {
+                nexusArtifactUploader artifacts: [
+                    [
+                        artifactId: 'my-app', 
+                        classifier: '', 
+                        file: 'target/myapp-1.0-SNAPSHOT.jar', 
+                        type:'jar'
+                    ]
+                ], 
+                credentialsId:'982e97b1-c27a-4c1b-a4ba-629976a7660d', 
+                groupId: 'com.mycompany.app', 
+                nexusUrl: 'johanpsl.com:8081', 
+                nexusVersion: 'nexus2', 
+                protocol: 'http', 
+                repository: 'http://johanpsl.com:8081/repository/JohanPSL/',
+                version: '1.0-SNAPSHOT'
+        }
+        }   
     }
     post {
         always {
